@@ -178,10 +178,41 @@ public class ApplicationConfiguration {
 ```
 - In case multiple beans of the same type are found in configuration, spring injects the one, which is discovered as the last
 
-## Java Configuration
-- In Java classes annotated with @Configuration on class level
-- Beans can be either specifically declared in @Configuration using @Bean annotation or automatically discovered using component scan
+## Java-Based Configuration
 
+- In Java classes annotated with @Configuration on class level
+- Beans can be either specifically declared in @Configuration using @Bean annotation (Java-based configuration) or automatically discovered using component scan and annotations (annotation-based configuration, see next section)
+- On @Configuration class, @ComponentScan annotation can be present with packages, which should be scanned (see Component Scan below)
+- @Configuration classes are CGLib proxies, so limitations to these proxies apply (no final methods can be proxied, ..)
+- @Configuration classes do not require a default constructor (since Spring 4)
+
+### Explicit bean declaration
+- Class is explicitly marked as spring managed bean in @Configuration class (similar concept is in XML config)
+- All settings of the bean are present in the @Configuration class in the bean declaration
+- Spring config is completely in the @Configuration, bean is just POJO with no spring dependency
+- Cleaner separation of concerns (compared to annotation-based configuration)
+- Type-safe (problems with types are detected at compile time, not at runtime)
+- Refactoring friendly (regarding type names)
+- Only option for third party dependencies, where you cannot change source code
+
+```java
+@Configuration
+public class ApplicationConfiguration {
+    
+    /***
+    *  - Object returned by this method will be spring managed bean 
+    *  - Return type is the type of the bean
+    *  - Method name is the name of the bean
+    */
+    @Bean
+    public MyBean myBean() {
+        MyBean myBean = new MyBean();
+        //Configure myBean here
+        return myBean;
+    }
+```
+
+## Annotation-Based Configuration
 
 #### Component Scan
 - On @Configuration class, @ComponentScan annotation can be present with packages, which should be scanned
@@ -251,30 +282,6 @@ Autowired resolution sequence
     
 When a bean name is not specified, one is auto-generated: De-capitalized non-qualified class name
 
-
-#### Explicit bean declaration
-- Class is explicitly marked as spring managed bean in @Configuration class (similar concept is in XML config)
-- All settings of the bean are present in the @Configuration class in the bean declaration
-- Spring config is completely in the @Configuration, bean is just POJO with no spring dependency
-- Cleaner separation of concerns
-- Only option for third party dependencies, where you cannot change source code
-
-```java
-@Configuration
-public class ApplicationConfiguration {
-    
-    /***
-    *  - Object returned by this method will be spring managed bean 
-    *  - Return type is the type of the bean
-    *  - Method name is the name of the bean
-    */
-    @Bean
-    public MyBean myBean() {
-        MyBean myBean = new MyBean();
-        //Configure myBean here
-        return myBean;
-    }
-```
 
 #### Component scan vs Explicit bean declaration
 - Same settings can be achieved either way
