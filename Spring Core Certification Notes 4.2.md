@@ -41,8 +41,9 @@ easy mocking for unit tests, in memory database vs production one, etc.
 [A] Additional ways to create app context
 - new AnnotationConfigApplicationContext(AppConfig.class);
 - new ClassPathXmlApplicationContext(“com/example/app-config.xml”);
-- new FileSystemXmlApplicationContext(“C:/Users/vojtech/app-config.xml”);
-- new FileSystemXmlApplicationContext(“./app-config.xml”);
+- new FileSystemXmlApplicationContext(“/app-config.xml”); (path is interpreted relative to VM, even if it starts with a '/')
+- new FileSystemXmlApplicationContext(“file:C:/app-config.xml”); (absolute path is enforced by file prefix)
+
 
 #### Obtaining beans from Application Context
 ```java
