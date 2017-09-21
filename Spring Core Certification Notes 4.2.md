@@ -666,15 +666,16 @@ Writing AOP Apps
 - In Java Config - @EnableAspectJAutoProxy on @Configuration class
 - Create @Aspect classes, which encapsulate AOP behavior
     - Annotate with @Aspect
-    - Must be spring managed bean - either explicitly declare in configuration or discover via component-scan
+    - Aspect and target must be spring managed beans - either explicitly declare in configuration or discover via component-scan
     - Class methods are annotated with annotation defining advice (eg. Before method call, After, if exception), the annotation value defines pointcut
+    - JoinPoint parameter can be injected: provides access to the target bean, the arguments of the intercepted target method, and a static description of the JoinPoint
     - @Before("execution(void set*(*))")
     
 ```java
 @Aspect
 public class MyAspect {
     @Before("execution(void set*(*))") 
-    public void beforeSet() {
+    public void beforeSet(JoinPoint jp) {
         //Do something before each setter call
     }
 }    
@@ -704,8 +705,7 @@ public class MyAspect {
 - @Before("expression")
 
 #### After returning
-- Executes after successful target method invocation
-- If advice throws an exception, target is not called
+- Executes only after successful target method invocation: if target bean throws an exception, advice is not called
 - Return value of target method can be injected to the annotated method using `returning` param
 - @AfterReturning(value="expression", returning="paramName")
 ```java
@@ -716,9 +716,9 @@ public class MyAspect {
 ```
 
 #### After throwing
-- Called after target method invocation throws an exception
+- Called only after target method invocation throws an exception
 - Exception object being thrown from target method can be injected to the annotated method using `throwing` param
-- It will not stop exception from propagating but can throw another exception
+- It will __not__ stop exception from propagating but can throw another exception
 - Stopping exception from propagating can be achieved using @Around advice
 - @AfterThrowing(value="expression", throwing="paramName")
 
@@ -736,6 +736,7 @@ public class MyAspect {
 #### Around
 - ProceedingJoinPoint parameter can be injected - same as regular JoinPoint, but has proceed() method
 - By calling proceed() method, target method will be invoked, otherwise it will not be
+- Can be used to intercept exceptions, and stop them from propagating
 
 #### [A] XML AOP Configuration
 - Instead of AOP annotations (@Aspect, @Before, @After, ...), pure XML onfig can be used
