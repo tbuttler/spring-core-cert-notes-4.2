@@ -736,7 +736,10 @@ public class MyAspect {
 #### Around
 - ProceedingJoinPoint parameter can be injected - same as regular JoinPoint, but has proceed() method
 - By calling proceed() method, target method will be invoked, otherwise it will not be
-- Can be used to intercept exceptions, and stop them from propagating
+- Advice needs to match the target method regarding the return type (otherwise: AopInvocationException), and return any results
+- Can be used to 
+  - intercept exceptions, and stop them from propagating
+  - modify return values
 
 #### [A] XML AOP Configuration
 - Instead of AOP annotations (@Aspect, @Before, @After, ...), pure XML onfig can be used
