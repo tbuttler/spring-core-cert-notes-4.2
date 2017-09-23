@@ -1267,7 +1267,7 @@ public class WebAppInitializer extends AbstractContextLoaderInitializer {
 </context-param>
 ```
 
-##Dependency injection in servlets
+## Dependency injection in servlets
 - in init() of HttpServlet cannot access spring beans as they are not available yet
 - need to use `WebApplicationContextUtils` - provides application Context through Servlet Context
 - Only needed in servlets - other components such as @Controllers can use regular Dependency Injection 
