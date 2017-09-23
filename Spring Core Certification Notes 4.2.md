@@ -1,18 +1,23 @@
-> Note: Topics marked with [A] are advanced and are not covered in the certification exam
+> Note: Topics marked with [A] are advanced and are not covered in the certification exam. These marks were added by vojtechruz (and not updated).
+> JMS is not covered yet
 
 # Content
 
-[Dependency Injection in Spring](#dependency-injection-in-spring)
-[Spring Configuration](#spring-configuration)
-[Spring Application Lifecycle](#spring-application-lifecycle)
-[Testing Spring Applications](#testing-spring-applications)
-[Aspect Oriented Programming](#Aspect Oriented Programming)
-[REST](#rest)
-[Microservices in Spring](#microservices-in-spring)
-[Spring Security](#spring-security)
-[Spring Web](#spring-web)
-[JPA with Spring](#jpa-with-spring)
-[Transactions](#transactions)
+* [Dependency Injection in Spring](#dependency-injection-in-spring)
+* [Spring Configuration](#spring-configuration)
+* [Spring Application Lifecycle](#spring-application-lifecycle)
+* [Testing Spring Applications](#testing-spring-applications)
+* [Aspect Oriented Programming](#aspect-oriented-programming)
+* [REST](#rest)
+* [Microservices in Spring](#microservices-in-spring)
+* [Spring Security](#spring-security)
+* [Spring Web](#spring-web)
+* [Spring MVC](#spring-mvc)
+* [Spring Boot](#spring-boot)
+* [Data Management With Spring](#data-management-with-spring)
+* [JDBC with Spring](#jdbc-with-spring)
+* [JPA with Spring](#jpa-with-spring)
+* [Transactions](#transactions)
 
 # Dependency Injection In Spring
 ## DI Basics
