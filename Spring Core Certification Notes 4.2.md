@@ -74,6 +74,7 @@ easy mocking for unit tests, in memory database vs production one, etc.
 ## Bean Scopes
 - Spring manages lifecycle of beans, each bean has its scope
 - Default scope is singleton - one instance per application context
+    - Singleton scope is not the singleton design pattern: if you declare two beans of scope singleton and type MyBean using different bean names, you actually get two instances of type MyBean
 - If none of the Spring scopes is appropriate, custom scopes can be defined
 - Scope can be defined by @Scope (eg. @Scope(BeanDefinition.SCOPE_SINGLETON)) annotation on the class-level of bean class
 
@@ -182,7 +183,8 @@ public class ApplicationConfiguration {
 }
 
 ```
-- Beans defined in another @Configuration file can be injected using @Autowired annotation on field or setter level, cannot use constructors here
+- Beans defined in another @Configuration file can be injected using @Autowired annotation on field or setter level, since __Spring 4.3__ you can also use constructors here
+- classes annotated with @Configuration are also beans, and can therefore be injected into another @Configruation class
 - Another way of referencing beans from another @Configuration is to declare them as method parameters of defined beans in current config file
 ```java
 @Configuration
