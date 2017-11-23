@@ -13,6 +13,15 @@ To start using Anki Spring Core Certification deck
 2. [Download](https://github.com/tbuttler/spring-core-cert-notes-4.2/raw/master/Spring%20Core%20Certification.apkg) the Spring Core Certification Deck
 3. Run Anki and import downloaded deck using `File → Import`
 
+# Mock Exams
+
+There are a few mock exams out there that can be used for exercise purposes:
+
+* (mostly paid) http://itestjava.com/java-certification-practice-tests/demo/get.do?item=00000000000000000033 
+* (mostly paid) https://www.certification-questions.com/spring-free-mock-exams/spring-core-v4.2-practice-test.html 
+* (free) http://javaetmoi.com/wp-content/uploads/2016/01/spring-certification-4_2-mock-exam-antoine.pdf 
+* (free) https://www.tutorialspoint.com/spring/spring_online_test.htm 
+
 # Acknowledgements
 
 These notes are a fork from vojtechruz, who did most of the work. Thank you.
