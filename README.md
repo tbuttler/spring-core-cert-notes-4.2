@@ -1,6 +1,5 @@
 # Spring Core Certification Notes
-[In Spring Core Certification Notes 4.2.md](https://github.com/tbuttler/spring-core-cert-notes-4.2/blob/master/Spring%20Core%20Certification%20Notes%204.2.md), there are my notes, which I created as a part of my preparation for the certification. Feel free to edit any inaccuracies,
-typos or mistakes and create a pull request for that.
+[In Spring Core Certification Notes 4.2.md](https://github.com/tbuttler/spring-core-cert-notes-4.2/blob/master/Spring%20Core%20Certification%20Notes%204.2.md), there are notes, which I used as a part of my preparation for the certification. These notes (and the flashcards below) were originally created by vojtechruz. I have extended them with a few things I was interested in. Feel free to edit any inaccuracies, typos or mistakes and create a pull request for that.
 
 # Spring Core Certification Anki Flashcards
 [Spring Core Certification.apkg](https://github.com/tbuttler/spring-core-cert-notes-4.2/blob/master/Spring%20Core%20Certification.apkg) is a set of flashcards exported from [Anki software](http://ankisrs.net/) .
