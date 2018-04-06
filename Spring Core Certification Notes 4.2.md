@@ -859,7 +859,8 @@ public class PersonService {
     - MappingJackson2XmlHttpMessageConverter
     - GsonHttpMessageConverter
     - RssChannelHttpMessageConverter
-- AsyncRestTemplate - similar to regular one, allows asynchronous calls, returns ListenableFuture
+- Spring 4.x: AsyncRestTemplate - similar to regular one, allows asynchronous calls, returns ListenableFuture (deprecated in Spring 5.0)
+- Spring 5.x: WebClient is a fluent replacement for the AsyncRestTemplate (can also replace RestTemplate)
 
 ## Spring Rest Support
 - In MVC Controllers, HTTP method consumed can be specified
